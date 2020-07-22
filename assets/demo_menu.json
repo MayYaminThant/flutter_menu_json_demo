@@ -1,0 +1,843 @@
+[
+  {
+    "topCategoryDBId": 4,
+    "topCategoryId": 4,
+    "topCategoryNameGivenByCustomer": "Expiry Top",
+    "topCategoryData": [
+      {
+        "categoryId": 1,
+        "categoryDBId": 4,
+        "category": "Expiry Sub 01",
+        "items": [
+          {
+            "id": 1,
+            "item_name": "Expiry Item 01",
+            "item_description": "",
+            "item_price": 1200.0,
+            "photo": "",
+            "quantity": 8.0,
+            "barcode": "",
+            "itemDBId": 11,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0401001",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 4,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1200.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 1,
+            "item_name": "Expiry Item 02",
+            "item_description": "",
+            "item_price": 1100.0,
+            "photo": "",
+            "quantity": 100.0,
+            "barcode": "",
+            "itemDBId": 12,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0401002",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 4,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1200.0
+              },
+              {
+                "label": "",
+                "price": 1100.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          }
+        ],
+        "displayOrder": 0,
+        "categoryFeatures": {
+          "isClaimableByMemberPoints": false,
+          "isPointCollectEnabledByMember": false,
+          "isWeightVaryUnderAViss": false,
+          "isEffectedByPersonDiscount": false
+        },
+        "topCategoryId": -1
+      }
+    ],
+    "displayOrder": 0
+  },
+  {
+    "topCategoryDBId": 1,
+    "topCategoryId": 1,
+    "topCategoryNameGivenByCustomer": "New Top Category",
+    "topCategoryData": [
+      {
+        "categoryId": 1,
+        "categoryDBId": 1,
+        "category": "New Category",
+        "items": [
+          {
+            "id": 2,
+            "item_name": "Test Item 01",
+            "item_description": "",
+            "item_price": 1200.0,
+            "photo": "",
+            "quantity": 13.0,
+            "barcode": "",
+            "itemDBId": 2,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0101002",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 1,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1200.0
+              },
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1595411026863,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 3,
+            "item_name": "Multi Payment Item 01 Multi Payment Item 01 Multi Payment Item 01 Multi Payment Item 01",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 0.0,
+            "barcode": "",
+            "itemDBId": 3,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0101003",
+            "itemType": "NO_STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 1,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1500.0
+              },
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          }
+        ],
+        "displayOrder": 0,
+        "categoryFeatures": {
+          "isClaimableByMemberPoints": true,
+          "isPointCollectEnabledByMember": true,
+          "isWeightVaryUnderAViss": false,
+          "isEffectedByPersonDiscount": false
+        },
+        "topCategoryId": -1
+      }
+    ],
+    "displayOrder": 0
+  },
+  {
+    "topCategoryDBId": 2,
+    "topCategoryId": 2,
+    "topCategoryNameGivenByCustomer": "Test Top 01",
+    "topCategoryData": [
+      {
+        "categoryId": 1,
+        "categoryDBId": 2,
+        "category": "Test Sub 01",
+        "items": [
+          {
+            "id": 1,
+            "item_name": "Test Item 02",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 10.0,
+            "barcode": "",
+            "itemDBId": 4,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0201001",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 2,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 1,
+            "item_name": "Test Item 03",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 10.0,
+            "barcode": "",
+            "itemDBId": 5,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0201002",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 2,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 1,
+            "item_name": "Test Item 04",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 15.0,
+            "barcode": "",
+            "itemDBId": 6,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0201003",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 2,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 1,
+            "item_name": "Test Item 05",
+            "item_description": "",
+            "item_price": 900.0,
+            "photo": "",
+            "quantity": 100.0,
+            "barcode": "",
+            "itemDBId": 7,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0201004",
+            "itemType": "STOCK",
+            "oneItemDiscount": 100.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 2,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          }
+        ],
+        "displayOrder": 0,
+        "categoryFeatures": {
+          "isClaimableByMemberPoints": false,
+          "isPointCollectEnabledByMember": false,
+          "isWeightVaryUnderAViss": false,
+          "isEffectedByPersonDiscount": false
+        },
+        "topCategoryId": -1
+      }
+    ],
+    "displayOrder": 0
+  },
+  {
+    "topCategoryDBId": 3,
+    "topCategoryId": 3,
+    "topCategoryNameGivenByCustomer": "Test Top 02",
+    "topCategoryData": [
+      {
+        "categoryId": 1,
+        "categoryDBId": 3,
+        "category": "Test Sub 02",
+        "items": [
+          {
+            "id": 1,
+            "item_name": "Test Top 02_01",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 20.0,
+            "barcode": "",
+            "itemDBId": 8,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0301001",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 3,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 1,
+            "item_name": "eeee",
+            "item_description": "",
+            "item_price": 2.0,
+            "photo": "",
+            "quantity": 2.0,
+            "barcode": "",
+            "itemDBId": 10,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "54030018888",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 3,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 2.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594893423751,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 2,
+            "item_name": "Test Item 06",
+            "item_description": "",
+            "item_price": 1500.0,
+            "photo": "",
+            "quantity": 9.0,
+            "barcode": "",
+            "itemDBId": 13,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0301002",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 3,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1500.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1594894249139,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          }
+        ],
+        "displayOrder": 0,
+        "categoryFeatures": {
+          "isClaimableByMemberPoints": false,
+          "isPointCollectEnabledByMember": false,
+          "isWeightVaryUnderAViss": false,
+          "isEffectedByPersonDiscount": false
+        },
+        "topCategoryId": -1
+      }
+    ],
+    "displayOrder": 0
+  },
+  {
+    "topCategoryDBId": 5,
+    "topCategoryId": 5,
+    "topCategoryNameGivenByCustomer": "Test Top 03",
+    "topCategoryData": [
+      {
+        "categoryId": 1,
+        "categoryDBId": 5,
+        "category": "Test Sub 03",
+        "items": [
+          {
+            "id": 1,
+            "item_name": "Test 03-01",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 5.0,
+            "barcode": "",
+            "itemDBId": 15,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0501001",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 5,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1595411172690,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 2,
+            "item_name": "test item 009",
+            "item_description": "",
+            "item_price": 1000.0,
+            "photo": "",
+            "quantity": 10.0,
+            "barcode": "",
+            "itemDBId": 16,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0501002",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 5,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1000.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1595413067356,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          },
+          {
+            "id": 3,
+            "item_name": "test item 008",
+            "item_description": "",
+            "item_price": 1.0,
+            "photo": "",
+            "quantity": 2.0,
+            "barcode": "",
+            "itemDBId": 17,
+            "itemInfoList": {
+              "History": [],
+              "Remaining": []
+            },
+            "averageBoughtPriceForOne": 0.0,
+            "oneItemPrice": 0.0,
+            "itemCode": "0501003",
+            "itemType": "STOCK",
+            "oneItemDiscount": 0.0,
+            "unit": "",
+            "additionalImages": {},
+            "topId": 5,
+            "catId": 1,
+            "extraWeightPerBucket": 0.8,
+            "expression": "1.0",
+            "orderItemInfoList": [],
+            "itemModifiers": [],
+            "staffList": [],
+            "itemPriceInfoList": [
+              {
+                "label": "",
+                "price": 1.0
+              }
+            ],
+            "itemAvailability": "AVAILABLE",
+            "itemStatus": "NONE",
+            "itemTag": "",
+            "systemTag": "NONE",
+            "currencyType": "",
+            "displayOrder": 0,
+            "uniqueId": "",
+            "ratio": 0.0,
+            "unit_db_id": 0,
+            "promotion_id": 0,
+            "priceSetType": "ORIGINAL",
+            "isUnitAutoChanged": true,
+            "sellBy": "DEFAULT",
+            "lastUpdatedTime": 1595413128502,
+            "isOrderAutoMarge": false,
+            "margeItemDBId": 0,
+            "isPromotedItem": false
+          }
+        ],
+        "displayOrder": 0,
+        "categoryFeatures": {
+          "isClaimableByMemberPoints": false,
+          "isPointCollectEnabledByMember": false,
+          "isWeightVaryUnderAViss": false,
+          "isEffectedByPersonDiscount": false
+        },
+        "topCategoryId": -1
+      }
+    ],
+    "displayOrder": 0
+  }
+]

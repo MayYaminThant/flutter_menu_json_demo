@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp04/current_order.dart';
 
 //import 'dart:convert' as convert;
 //import 'package:http/http.dart' as http;
@@ -54,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int count = 0;
+  List<Item> selectedList = List();
   List<TopCategoryData> subCategoryList = List();
   Menu selectedMenu;
   TopCategoryData categoryData;
@@ -149,7 +151,14 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               IconButton(
                 icon: Icon(Icons.shopping_cart),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            CurrentOrder(currentOrderItemList: selectedList)),
+                  );
+                },
               ),
               Positioned(
                 right: 4,
@@ -191,6 +200,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   setState(() {
                     count++;
+                    var wasFound = false;
+                    for (Item item in selectedList) {
+                      if (itemList[index].itemCode == item.itemCode) {
+                        item.quantity++;
+                        wasFound = true;
+                      }
+                    }
+                    if (!wasFound) {
+                      var item = itemList[index];
+                      item.quantity = 1;
+                      selectedList.add(item);
+                    }
                   });
                 },
                 iconSize: 38,

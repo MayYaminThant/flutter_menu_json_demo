@@ -20,14 +20,14 @@ class Menu {
   int topCategoryDbId;
   int topCategoryId;
   String topCategoryNameGivenByCustomer;
-  List<TopCategoryDatum> topCategoryData;
+  List<TopCategoryData> topCategoryData;
   int displayOrder;
 
   factory Menu.fromJson(Map<String, dynamic> json) => Menu(
     topCategoryDbId: json["topCategoryDBId"],
     topCategoryId: json["topCategoryId"],
     topCategoryNameGivenByCustomer: json["topCategoryNameGivenByCustomer"],
-    topCategoryData: List<TopCategoryDatum>.from(json["topCategoryData"].map((x) => TopCategoryDatum.fromJson(x))),
+    topCategoryData: List<TopCategoryData>.from(json["topCategoryData"].map((x) => TopCategoryData.fromJson(x))),
     displayOrder: json["displayOrder"],
   );
 
@@ -40,8 +40,8 @@ class Menu {
   };
 }
 
-class TopCategoryDatum {
-  TopCategoryDatum({
+class TopCategoryData {
+  TopCategoryData({
     this.categoryId,
     this.categoryDbId,
     this.category,
@@ -59,7 +59,7 @@ class TopCategoryDatum {
   CategoryFeatures categoryFeatures;
   int topCategoryId;
 
-  factory TopCategoryDatum.fromJson(Map<String, dynamic> json) => TopCategoryDatum(
+  factory TopCategoryData.fromJson(Map<String, dynamic> json) => TopCategoryData(
     categoryId: json["categoryId"],
     categoryDbId: json["categoryDBId"],
     category: json["category"],

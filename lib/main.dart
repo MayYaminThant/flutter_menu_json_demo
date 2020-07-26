@@ -18,46 +18,93 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MyHomePage extends StatelessWidget {
 
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+//  @override
+//  _MyHomePageState createState() => _MyHomePageState();
+//}
+//
+//class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    fetchData(context);
+//    Future<List<Item>> list = getItemList(context);
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
-        body: ListView(
-          padding: EdgeInsets.all(6),
-          children: <Widget>[
-            Container(
-              color: Colors.amber[600],
-              child: Text('AA'),
-              height: 30,
-            ),
-            Container(
-              color: Colors.amber[500],
-              child: Text('BB'),
-              height: 30,
-            ),
-            Container(
-              color: Colors.amber[400],
-              child: Text('CC'),
-              height: 30,
-            ),
-          ],
-        ));
+      appBar: AppBar(
+        title: Text("Menu List"),
+        actions: <Widget>[
+          Stack(
+            children: [
+              IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () {},
+              ),
+              Positioned(
+                right: 4,
+                child: Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text('1'),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      backgroundColor: Colors.blueGrey,
+      body: FutureBuilder(
+        future: getItemList(context),
+        builder: (BuildContext context, AsyncSnapshot<List<Item>> snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text(snapshot.error.toString()));
+          }
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+//                return Text(snapshot.data[index].itemName);
+                return Card(
+                  shadowColor: Colors.black54,
+                  margin: EdgeInsets.all(4),
+                  child: ListTile(
+                    onTap: () {},
+                    leading: Icon(
+                      Icons.fastfood,
+                      color: Colors.blue,
+                    ),
+                    title: Text(
+                      snapshot.data[index].itemName,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      snapshot.data[index].itemPrice.toStringAsFixed(2),
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      iconSize: 38,
+                      icon: Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ),
+                );
+              },
+              itemCount: snapshot.data.length,
+            );
+          }
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
+    );
   }
 }
 
@@ -83,4 +130,21 @@ Future<List<Menu>> fetchData(BuildContext context) async {
       await DefaultAssetBundle.of(context).loadString('assets/demo_menu.json'));
 
   return menu;
+}
+
+Future<List<Item>> getItemList(BuildContext context) async {
+  List<Item> list = List();
+  List<Menu> menuList = await fetchData(context);
+  for (Menu menu in menuList) {
+    if (menu.topCategoryData == null) {
+      break;
+    }
+    for (TopCategoryData topCategoryData in menu.topCategoryData) {
+      if (topCategoryData.items == null) {
+        break;
+      }
+      list.addAll(topCategoryData.items);
+    }
+  }
+  return list;
 }

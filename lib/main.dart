@@ -24,13 +24,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
 
-//  @override
-//  _MyHomePageState createState() => _MyHomePageState();
-//}
-//
-//class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> {
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
 //    Future<List<Item>> list = getItemList(context);
@@ -52,7 +53,7 @@ class MyHomePage extends StatelessWidget {
                     color: Colors.red,
                     shape: BoxShape.circle,
                   ),
-                  child: Text('1'),
+                  child: Text('$count'),
                 ),
               ),
             ],
@@ -88,7 +89,11 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          count++;
+                        });
+                      },
                       iconSize: 38,
                       icon: Icon(
                         Icons.add_circle_outline,

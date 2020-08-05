@@ -42,29 +42,37 @@ class CurrentOrderHome extends StatelessWidget {
                 margin: EdgeInsets.all(8),
                 child: Column(
                   children: <Widget>[
-//                  IconButton(
-//                    iconSize: 40,
-//                    icon: Icon(Icons.home),
-//                    onPressed: () {},
-//                  ),
                     Image.asset('assets/images/three_apples.jpg'),
                     Container(
-                      height: 40,
+                      height: 45,
                       width: double.infinity,
                       margin: const EdgeInsets.only(
                           left: 5, top: 3, right: 5, bottom: 3),
                       child: RaisedButton(
-                          child: Text(currentOrderItemList[index].itemName)),
+                          color: Colors.lightBlueAccent,
+                          onPressed: () {},
+                          child: Text(currentOrderItemList[index].itemName,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20))),
                     ),
                     Container(
-                      height: 40,
+                      height: 45,
                       width: double.infinity,
                       margin: const EdgeInsets.only(
                           left: 5, top: 3, right: 5, bottom: 3),
                       child: RaisedButton(
-                        child: Text(currentOrderItemList[index]
-                            .itemPrice
-                            .toStringAsFixed(2)),
+                        color: Colors.lightBlueAccent,
+                        onPressed: () {},
+                        child: Text(
+                            currentOrderItemList[index]
+                                .itemPrice
+                                .toStringAsFixed(2),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20)),
                       ),
                     ),
                     Row(
@@ -73,38 +81,42 @@ class CurrentOrderHome extends StatelessWidget {
                           width: size,
                           height: 40,
                           margin: const EdgeInsets.only(
-                              left: 5, top: 3, right: 5, bottom: 3),
+                              left: 5, top: 3, right: 5, bottom: 8),
                           child: RaisedButton(
+                              color: Colors.lightBlue,
+                              onPressed: () {},
                               child: Icon(Icons.add,
                                   size: 25, color: Colors.white)),
-                          color: Colors.lightBlue,
                         ),
                         Expanded(
                           child: Container(
                             height: 40,
                             margin: const EdgeInsets.only(
-                                left: 5, top: 3, right: 5, bottom: 3),
+                                left: 5, top: 3, right: 5, bottom: 8),
                             child: RaisedButton(
+                              color: Colors.orangeAccent,
+                                onPressed: () {},
                                 child: Text(
-                              currentOrderItemList[index]
-                                  .quantity
-                                  .toStringAsFixed(2),
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            )),
+                                  currentOrderItemList[index]
+                                      .quantity
+                                      .toStringAsFixed(2),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )),
                           ),
                         ),
                         Container(
                           width: size,
                           height: 40,
                           margin: const EdgeInsets.only(
-                              left: 5, top: 3, right: 5, bottom: 3),
+                              left: 5, top: 3, right: 5, bottom: 8),
                           child: RaisedButton(
+                              color: Colors.lightBlue,
+                              onPressed: () {},
                               child: Icon(Icons.remove,
                                   size: 25, color: Colors.white)),
-                          color: Colors.lightBlue,
                         ),
                       ],
                     )

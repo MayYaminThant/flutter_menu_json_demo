@@ -184,10 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
             margin: EdgeInsets.all(4),
             child: ListTile(
               onTap: () {},
-              leading: Icon(
-                Icons.fastfood,
-                color: Colors.blue,
-              ),
+              leading: Image.asset('assets/images/apple.jpg'),
               title: Text(
                 itemList[index].itemName,
                 style: TextStyle(fontWeight: FontWeight.bold),

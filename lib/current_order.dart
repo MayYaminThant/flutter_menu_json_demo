@@ -94,7 +94,7 @@ class CurrentOrderHome extends StatelessWidget {
                             margin: const EdgeInsets.only(
                                 left: 5, top: 3, right: 5, bottom: 8),
                             child: RaisedButton(
-                              color: Colors.orangeAccent,
+                                color: Colors.orangeAccent,
                                 onPressed: () {},
                                 child: Text(
                                   currentOrderItemList[index]

@@ -226,22 +226,35 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-//void fetchData() async {
-//  // This example uses the Google Books API to search for books about http.
-//  // https://developers.google.com/books/docs/overview
-//  var url = 'https://www.googleapis.com/books/v1/volumes?q={http}';
-//
-//  // Await the http get response, then decode the json-formatted response.
-//  var response = await http.get(url);
-//  if (response.statusCode == 200) {
-//    List<Menu> menu = //convert.jsonDecode(response.body)
-//        menuFromJson(response.body);
-//    var itemCount = menu.length;
-//    print('Number of books about http: $itemCount.');
-//  } else {
-//    print('Request failed with status: ${response.statusCode}.');
-//  }
-//}
+// Future<List<Menu>> fetchData(BuildContext context) async {
+//   // This example uses the Google Books API to search for books about http.
+//   // https://developers.google.com/books/docs/overview
+//   var url = 'http://tara-51:4907/tarabar/stockReport.json';
+
+//   // Await the http get response, then decode the json-formatted response.
+//   var response = await http.get(url);
+//   if (response.statusCode == 200) {
+//     List<Menu> menuList = convert.jsonDecode(response.body);
+//     var itemCount = menuList.length;
+//     menuList.insert(
+//         0,
+//         Menu(
+//             topCategoryNameGivenByCustomer: "All Top Category",
+//             topCategoryDbId: -1,
+//             topCategoryId: -1,
+//             topCategoryData: [
+//               TopCategoryData(
+//                   category: "All Sub Category",
+//                   categoryDbId: -1,
+//                   categoryId: -1,
+//                   topCategoryId: -1)
+//             ]));
+//     print('Number of menu about http: $itemCount.');
+//     return menuList;
+//   } else {
+//     throw Exception('Failed to load menu');
+//   }
+// }
 
 Future<List<Menu>> fetchData(BuildContext context) async {
   List<Menu> menuList = menuFromJson(

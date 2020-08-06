@@ -15,18 +15,30 @@ class CurrentOrder extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: CurrentOrderHome(
+      home: MyStateHomePage(
         currentOrderItemList: currentOrderItemList,
       ),
     );
   }
 }
 
-class CurrentOrderHome extends StatelessWidget {
+class MyStateHomePage extends StatefulWidget {
   final List<Item> currentOrderItemList;
 
-  const CurrentOrderHome({Key key, this.currentOrderItemList})
-      : super(key: key);
+  const MyStateHomePage({Key key, this.currentOrderItemList}) : super(key: key);
+
+  @override
+  _CurrentOrderHome createState() => _CurrentOrderHome();
+}
+
+class _CurrentOrderHome extends State<MyStateHomePage> {
+  List<Item> currentOrderItemList = List();
+
+  @override
+  void initState() {
+    currentOrderItemList = widget.currentOrderItemList;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +50,7 @@ class CurrentOrderHome extends StatelessWidget {
           child: ListView.builder(
             itemCount: currentOrderItemList.length,
             itemBuilder: (BuildContext context, int index) {
+              double itemQuantity = currentOrderItemList[index].quantity;
               return Card(
                 margin: EdgeInsets.all(8),
                 child: Column(
@@ -84,7 +97,11 @@ class CurrentOrderHome extends StatelessWidget {
                               left: 5, top: 3, right: 5, bottom: 8),
                           child: RaisedButton(
                               color: Colors.lightBlue,
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  currentOrderItemList[index].quantity++;
+                                });
+                              },
                               child: Icon(Icons.add,
                                   size: 25, color: Colors.white)),
                         ),
@@ -97,9 +114,7 @@ class CurrentOrderHome extends StatelessWidget {
                                 color: Colors.orangeAccent,
                                 onPressed: () {},
                                 child: Text(
-                                  currentOrderItemList[index]
-                                      .quantity
-                                      .toStringAsFixed(2),
+                                  itemQuantity.toStringAsFixed(2),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -114,7 +129,16 @@ class CurrentOrderHome extends StatelessWidget {
                               left: 5, top: 3, right: 5, bottom: 8),
                           child: RaisedButton(
                               color: Colors.lightBlue,
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  if (itemQuantity == 1) {
+                                    currentOrderItemList
+                                        .remove(currentOrderItemList[index]);
+                                  } else {
+                                    currentOrderItemList[index].quantity--;
+                                  }
+                                });
+                              },
                               child: Icon(Icons.remove,
                                   size: 25, color: Colors.white)),
                         ),

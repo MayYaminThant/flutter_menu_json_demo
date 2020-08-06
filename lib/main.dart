@@ -54,7 +54,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int count = 0;
   List<Item> selectedList = List();
   List<TopCategoryData> subCategoryList = List();
   Menu selectedMenu;
@@ -76,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<Item> itemList = getItemList(widget.topCategoryList,
         selectedMenu.topCategoryId, categoryData.categoryDbId);
+    double count = getSelectedTotalItemQty(selectedList);
     return Scaffold(
       drawer: Drawer(
         child: SafeArea(
@@ -196,7 +196,6 @@ class _MyHomePageState extends State<MyHomePage> {
               trailing: IconButton(
                 onPressed: () {
                   setState(() {
-                    count++;
                     var wasFound = false;
                     for (Item item in selectedList) {
                       if (itemList[index].itemCode == item.itemCode) {
@@ -209,6 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       item.quantity = 1;
                       selectedList.add(item);
                     }
+                    count = getSelectedTotalItemQty(selectedList);
                   });
                 },
                 iconSize: 38,
@@ -309,4 +309,12 @@ List<DropdownMenuItem<Menu>> getTopCategoryList(List<Menu> menuList) {
     );
   }
   return dropList;
+}
+
+double getSelectedTotalItemQty(List<Item> itemList) {
+  double count = 0;
+  for (Item item in itemList) {
+    count += item.quantity;
+  }
+  return count;
 }

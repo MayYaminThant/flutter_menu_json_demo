@@ -95,11 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     selectedMenu = menu;
                     subCategoryList = List();
-                    subCategoryList.add(TopCategoryData(
-                        category: "All Sub Category",
-                        categoryDbId: -1,
-                        categoryId: -1,
-                        topCategoryId: -1));
+                    if (menu.topCategoryData.length > 1) {
+                      subCategoryList.add(TopCategoryData(
+                          category: "All Sub Category",
+                          categoryDbId: -1,
+                          categoryId: -1,
+                          topCategoryId: -1));
+                    }
                     subCategoryList.addAll(menu.topCategoryData);
                     categoryData =
                         (subCategoryList != null && subCategoryList.isNotEmpty)
@@ -147,31 +149,41 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Menu List"),
         actions: <Widget>[
-          Stack(
-            children: [
-              IconButton(
-                icon: Icon(Icons.shopping_cart),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            CurrentOrder(currentOrderItemList: selectedList)),
-                  );
-                },
-              ),
-              Positioned(
-                right: 4,
-                child: Container(
-                  padding: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () async {
+                await navigateToShoppingCart(context, selectedList);
+
+                setState(() {});
+              },
+              child: Stack(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.shopping_cart),
+                    onPressed: () async {
+                      await navigateToShoppingCart(context, selectedList);
+
+                      setState(() {});
+                    },
                   ),
-                  child: Text('$count'),
-                ),
+                  Positioned(
+                    right: 4,
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        '$count',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ],
       ),
@@ -184,7 +196,16 @@ class _MyHomePageState extends State<MyHomePage> {
             margin: EdgeInsets.all(4),
             child: ListTile(
               onTap: () {},
-              leading: Image.asset('assets/images/apple.jpg'),
+//              leading: Image.asset('assets/images/apple.jpg'),
+//              leading: Image.network(
+//                  'http://tara-51:4907/tarabar/tarabar/resources/images/' +
+//                      itemList[index].itemCode),
+              leading: FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                placeholder: 'assets/images/three_apples.jpg',
+                image: 'http://tara-51:4907/tarabar/tarabar/resources/images/' +
+                    itemList[index].itemCode,
+              ),
               title: Text(
                 itemList[index].itemName,
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -317,4 +338,13 @@ double getSelectedTotalItemQty(List<Item> itemList) {
     count += item.quantity;
   }
   return count;
+}
+
+Future navigateToShoppingCart(
+    BuildContext context, List<Item> selectedList) async {
+  await Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context) => CurrentOrder(currentOrderItemList: selectedList)),
+  );
 }

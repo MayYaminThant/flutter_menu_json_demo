@@ -5,6 +5,7 @@ import 'package:flutterapp04/current_order.dart';
 //import 'dart:convert' as convert;
 //import 'package:http/http.dart' as http;
 import 'models/menu.dart';
+import 'widgets/grid_item.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
+        primaryColorBrightness: Brightness.light,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
@@ -58,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<TopCategoryData> subCategoryList = List();
   Menu selectedMenu;
   TopCategoryData categoryData;
+  var itemView = Icons.view_comfy;
 
   @override
   void initState() {
@@ -147,14 +150,25 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text("Menu List"),
         actions: <Widget>[
+          IconButton(
+            icon: Icon(itemView),
+            onPressed: () {
+              setState(() {
+                itemView = (itemView == Icons.view_comfy)
+                    ? Icons.menu
+                    : Icons.view_comfy;
+              });
+            },
+          ),
           Material(
             color: Colors.transparent,
             child: InkWell(
               onTap: () async {
                 await navigateToShoppingCart(context, selectedList);
-
                 setState(() {});
               },
               child: Stack(
@@ -163,7 +177,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: Icon(Icons.shopping_cart),
                     onPressed: () async {
                       await navigateToShoppingCart(context, selectedList);
-
                       setState(() {});
                     },
                   ),
@@ -187,62 +200,65 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      backgroundColor: Colors.blueGrey,
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
+      body: itemView == Icons.menu
+          ? ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
 //                return Text(snapshot.data[index].itemName);
-          return Card(
-            shadowColor: Colors.black54,
-            margin: EdgeInsets.all(4),
-            child: ListTile(
-              onTap: () {},
-//              leading: Image.asset('assets/images/apple.jpg'),
-//              leading: Image.network(
-//                  'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-//                      itemList[index].itemCode),
-              leading: FadeInImage.assetNetwork(
-                fit: BoxFit.cover,
-                placeholder: 'assets/images/three_apples.jpg',
-                image: 'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-                    itemList[index].itemCode,
+                return Card(
+                  shadowColor: Colors.black54,
+                  margin: EdgeInsets.all(4),
+                  child: ListTile(
+                    onTap: () {},
+                    leading: FadeInImage.assetNetwork(
+                      fit: BoxFit.cover,
+                      placeholder: 'assets/images/three_apples.jpg',
+                      image:
+                          'http://tara-51:4907/tarabar/tarabar/resources/images/' +
+                              itemList[index].itemCode,
+                    ),
+                    title: Text(
+                      itemList[index].itemName,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      itemList[index].itemPrice.toStringAsFixed(2),
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          addToCart(selectedList, itemList, index);
+                        });
+                      },
+                      iconSize: 38,
+                      icon: Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ),
+                );
+              },
+              itemCount: itemList.length,
+            )
+          : GridView.builder(
+              itemCount: itemList.length,
+              physics: BouncingScrollPhysics(),
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.95,
+                crossAxisCount: 2,
               ),
-              title: Text(
-                itemList[index].itemName,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(
-                itemList[index].itemPrice.toStringAsFixed(2),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  setState(() {
-                    var wasFound = false;
-                    for (Item item in selectedList) {
-                      if (itemList[index].itemCode == item.itemCode) {
-                        item.quantity++;
-                        wasFound = true;
-                      }
-                    }
-                    if (!wasFound) {
-                      var item = itemList[index];
-                      item.quantity = 1;
-                      selectedList.add(item);
-                    }
-                    count = getSelectedTotalItemQty(selectedList);
-                  });
-                },
-                iconSize: 38,
-                icon: Icon(
-                  Icons.add_circle_outline,
-                  color: Colors.black54,
-                ),
-              ),
+              itemBuilder: (BuildContext context, int index) {
+                return GridItem(
+                  item: itemList[index],
+                  onTap: () {
+                    setState(() {
+                      addToCart(selectedList, itemList, index);
+                    });
+                  },
+                );
+              },
             ),
-          );
-        },
-        itemCount: itemList.length,
-      ),
     );
   }
 }
@@ -347,4 +363,19 @@ Future navigateToShoppingCart(
     MaterialPageRoute(
         builder: (context) => CurrentOrder(currentOrderItemList: selectedList)),
   );
+}
+
+void addToCart(List<Item> selectedList, List<Item> itemList, int index) {
+  var wasFound = false;
+  for (Item item in selectedList) {
+    if (itemList[index].itemCode == item.itemCode) {
+      item.quantity++;
+      wasFound = true;
+    }
+  }
+  if (!wasFound) {
+    var item = itemList[index];
+    item.quantity = 1;
+    selectedList.add(item);
+  }
 }

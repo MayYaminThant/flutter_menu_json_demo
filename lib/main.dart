@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp04/current_order.dart';
+import 'package:flutterapp04/widgets/list_item.dart';
 
 //import 'dart:convert' as convert;
 //import 'package:http/http.dart' as http;
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<TopCategoryData> subCategoryList = List();
   Menu selectedMenu;
   TopCategoryData categoryData;
-  var itemView = Icons.view_comfy;
+  var itemView = Icons.list;
 
   @override
   void initState() {
@@ -159,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               setState(() {
                 itemView = (itemView == Icons.view_comfy)
-                    ? Icons.menu
+                    ? Icons.list
                     : Icons.view_comfy;
               });
             },
@@ -189,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         shape: BoxShape.circle,
                       ),
                       child: Text(
-                        '$count',
+                        count.toStringAsFixed(0),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -200,42 +201,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: itemView == Icons.menu
+      body: itemView == Icons.view_comfy
           ? ListView.builder(
               itemBuilder: (BuildContext context, int index) {
 //                return Text(snapshot.data[index].itemName);
                 return Card(
                   shadowColor: Colors.black54,
                   margin: EdgeInsets.all(4),
-                  child: ListTile(
-                    onTap: () {},
-                    leading: FadeInImage.assetNetwork(
-                      fit: BoxFit.cover,
-                      placeholder: 'assets/images/three_apples.jpg',
-                      image:
-                          'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-                              itemList[index].itemCode,
-                    ),
-                    title: Text(
-                      itemList[index].itemName,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      itemList[index].itemPrice.toStringAsFixed(2),
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          addToCart(selectedList, itemList, index);
-                        });
-                      },
-                      iconSize: 38,
-                      icon: Icon(
-                        Icons.add_circle_outline,
-                        color: Colors.black54,
-                      ),
-                    ),
+                  child: ListItem(
+                    item: itemList[index],
+                    onTap: () {
+                      setState(() {
+                        addToCart(selectedList, itemList, index);
+                      });
+                    },
                   ),
                 );
               },

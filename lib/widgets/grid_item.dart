@@ -12,8 +12,12 @@ class GridItem extends StatelessWidget {
   final Item item;
   final GestureTapCallback onTap;
 
+  static double height;
+
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.width * 0.95 / 2.7;
+
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -35,10 +39,12 @@ class GridItem extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Center(
-          child: Image.asset(
-            'assets/images/apple.jpg',
-            width: 120,
-            height: 120,
+          child: FadeInImage.assetNetwork(
+            width: double.infinity,
+            height: height,
+            placeholder: 'assets/images/three_apples.jpg',
+            image: 'http://tara-51:4907/tarabar/tarabar/resources/images/' +
+                item.itemCode,
           ),
         ),
         Positioned(
@@ -68,7 +74,7 @@ class GridItem extends StatelessWidget {
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
       style: Theme.of(context).textTheme.caption.copyWith(
-            fontSize: 10,
+            fontSize: 11,
           ),
     );
   }

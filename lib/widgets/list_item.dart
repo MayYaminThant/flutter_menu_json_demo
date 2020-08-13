@@ -16,8 +16,9 @@ class ListItem extends StatelessWidget {
       leading: FadeInImage.assetNetwork(
         fit: BoxFit.cover,
         placeholder: 'assets/images/three_apples.jpg',
-        image: 'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-            item.itemCode,
+        image: 'http://192.168.100.5:4907/tarabar/tarabar/resources/images/' +
+            item.itemCode +
+            '.jpg',
       ),
       title: priceWidget(item.itemPrice),
       subtitle: nameWidget(context, item.itemName),

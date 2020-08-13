@@ -63,8 +63,9 @@ class _CurrentOrderHome extends State<MyStateHomePage> {
                     fit: BoxFit.scaleDown,
                     placeholder: 'assets/images/three_apples.jpg',
                     image:
-                        'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-                            currentOrderItemList[index].itemCode,
+                        'http://192.168.100.5:4907/tarabar/tarabar/resources/images/' +
+                            currentOrderItemList[index].itemCode +
+                            '.jpg',
                   ),
                   Container(
                     height: 45,
@@ -161,82 +162,3 @@ class _CurrentOrderHome extends State<MyStateHomePage> {
         ));
   }
 }
-
-//class CurrentOrderHome extends StatelessWidget {
-//  final List<Item> currentOrderItemList;
-//
-//  const CurrentOrderHome({Key key, this.currentOrderItemList})
-//      : super(key: key);
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    int count = 1;
-//    return Scaffold(
-//      body: Padding(
-//        padding: const EdgeInsets.all(8.0),
-//        child: Container(
-//          child: SingleChildScrollView(
-//            scrollDirection: Axis.horizontal,
-//            child: DataTable(
-//              columns: const <DataColumn>[
-//                DataColumn(
-//                  label: Text(
-//                    'No',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//                DataColumn(
-//                  label: Text(
-//                    'Item Name',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//                DataColumn(
-//                  label: Text(
-//                    'Item Code',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//                DataColumn(
-//                  label: Text(
-//                    'Quantity',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//                DataColumn(
-//                  label: Text(
-//                    'Unit',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//                DataColumn(
-//                  label: Text(
-//                    'Price',
-//                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//                  ),
-//                ),
-//              ],
-//              rows: currentOrderItemList
-//                  .map(
-//                    (item) => DataRow(cells: [
-//                      DataCell(
-//                          Text('${count++}', style: TextStyle(fontSize: 16))),
-//                      DataCell(
-//                          Text(item.itemName, style: TextStyle(fontSize: 16))),
-//                      DataCell(
-//                          Text(item.itemCode, style: TextStyle(fontSize: 16))),
-//                      DataCell(Text(item.quantity.toStringAsFixed(2),
-//                          style: TextStyle(fontSize: 16))),
-//                      DataCell(Text(item.unit, style: TextStyle(fontSize: 16))),
-//                      DataCell(Text(item.itemPrice.toStringAsFixed(2),
-//                          style: TextStyle(fontSize: 16))),
-//                    ]),
-//                  )
-//                  .toList(),
-//            ),
-//          ),
-//        ),
-//      ),
-//    );
-//  }
-//}

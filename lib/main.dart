@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp04/current_order.dart';
 import 'package:flutterapp04/widgets/list_item.dart';
 
-//import 'dart:convert' as convert;
-//import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 import 'models/menu.dart';
 import 'widgets/grid_item.dart';
 
@@ -242,55 +241,55 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// Future<List<Menu>> fetchData(BuildContext context) async {
-//   // This example uses the Google Books API to search for books about http.
-//   // https://developers.google.com/books/docs/overview
-//   var url = 'http://tara-51:4907/tarabar/stockReport.json';
-
-//   // Await the http get response, then decode the json-formatted response.
-//   var response = await http.get(url);
-//   if (response.statusCode == 200) {
-//     List<Menu> menuList = convert.jsonDecode(response.body);
-//     var itemCount = menuList.length;
-//     menuList.insert(
-//         0,
-//         Menu(
-//             topCategoryNameGivenByCustomer: "All Top Category",
-//             topCategoryDbId: -1,
-//             topCategoryId: -1,
-//             topCategoryData: [
-//               TopCategoryData(
-//                   category: "All Sub Category",
-//                   categoryDbId: -1,
-//                   categoryId: -1,
-//                   topCategoryId: -1)
-//             ]));
-//     print('Number of menu about http: $itemCount.');
-//     return menuList;
-//   } else {
-//     throw Exception('Failed to load menu');
-//   }
-// }
-
 Future<List<Menu>> fetchData(BuildContext context) async {
-  List<Menu> menuList = menuFromJson(
-      await DefaultAssetBundle.of(context).loadString('assets/demo_menu.json'));
+  // This example uses the Google Books API to search for books about http.
+  // https://developers.google.com/books/docs/overview
+  var url = 'http://192.168.100.5:4907/tarabar/public/stockReport.json';
 
-  menuList.insert(
-      0,
-      Menu(
-          topCategoryNameGivenByCustomer: "All Top Category",
-          topCategoryDbId: -1,
-          topCategoryId: -1,
-          topCategoryData: [
-            TopCategoryData(
-                category: "All Sub Category",
-                categoryDbId: -1,
-                categoryId: -1,
-                topCategoryId: -1)
-          ]));
-  return menuList;
+  // Await the http get response, then decode the json-formatted response.
+  var response = await http.get(url);
+  if (response.statusCode == 200) {
+    List<Menu> menuList = menuFromJson(response.body);
+    var itemCount = menuList.length;
+    menuList.insert(
+        0,
+        Menu(
+            topCategoryNameGivenByCustomer: "All Top Category",
+            topCategoryDbId: -1,
+            topCategoryId: -1,
+            topCategoryData: [
+              TopCategoryData(
+                  category: "All Sub Category",
+                  categoryDbId: -1,
+                  categoryId: -1,
+                  topCategoryId: -1)
+            ]));
+    print('Number of menu about http: $itemCount.');
+    return menuList;
+  } else {
+    throw Exception('Failed to load menu');
+  }
 }
+
+// Future<List<Menu>> fetchData(BuildContext context) async {
+//   List<Menu> menuList = menuFromJson(
+//       await DefaultAssetBundle.of(context).loadString('assets/demo_menu.json'));
+
+//   menuList.insert(
+//       0,
+//       Menu(
+//           topCategoryNameGivenByCustomer: "All Top Category",
+//           topCategoryDbId: -1,
+//           topCategoryId: -1,
+//           topCategoryData: [
+//             TopCategoryData(
+//                 category: "All Sub Category",
+//                 categoryDbId: -1,
+//                 categoryId: -1,
+//                 topCategoryId: -1)
+//           ]));
+//   return menuList;
+// }
 
 List<Item> getItemList(
     List<Menu> menuList, int topCategoryId, int subCategoryDBId) {

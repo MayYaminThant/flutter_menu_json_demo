@@ -43,8 +43,10 @@ class GridItem extends StatelessWidget {
             width: double.infinity,
             height: height,
             placeholder: 'assets/images/three_apples.jpg',
-            image: 'http://tara-51:4907/tarabar/tarabar/resources/images/' +
-                item.itemCode,
+            image:
+                'http://192.168.100.5:4907/tarabar/tarabar/resources/images/' +
+                    item.itemCode +
+                    '.jpg',
           ),
         ),
         Positioned(

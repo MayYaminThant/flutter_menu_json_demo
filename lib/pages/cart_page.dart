@@ -38,7 +38,6 @@ class _MyCartPageState extends State<MyCartPage> {
           ),
         ),
       ),
-//      body: bodyWidget(context, currentOrderItemList),
       body: Column(
         children: [
           /// item list

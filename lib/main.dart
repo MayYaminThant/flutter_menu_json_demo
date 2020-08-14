@@ -85,6 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var media = MediaQuery.of(context).size;
     var customRatio = media.width < 250 ? 1 : (media.width < 900 ? 1.2 : 0.8);
+
+    // var customRatio = media.width < 250
+    //     ? 0.8
+    //     : (media.width < 700 ? 1.0 : (media.width < 900 ? 1.0 : 0.8));
     var customCardLimit = media.width < 900 ? 2 : 3;
 
     return Scaffold(

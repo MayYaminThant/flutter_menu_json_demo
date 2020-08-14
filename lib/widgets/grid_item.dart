@@ -78,10 +78,11 @@ class GridItem extends StatelessWidget {
   Widget descriptionWidget(BuildContext context, String description) {
     return Text(
       description,
-      maxLines: 2,
+      maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: Theme.of(context).textTheme.caption.copyWith(
             fontSize: 11,
+            color: Colors.black87,
           ),
     );
   }

@@ -24,8 +24,8 @@ class _MyCartPageState extends State<MyCartPage> {
   @override
   Widget build(BuildContext context) {
     Map<String, double> map = getSelectedTotalItemQty(currentOrderItemList);
-    var totalQty = map['count'] == null ? 0 : map['count'];
-    var totalPrice = map['price'] == null ? 0 : map['price'];
+    double totalQty = map['count'] == null ? 0 : map['count'];
+    double totalPrice = map['price'] == null ? 0 : map['price'];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -53,6 +53,7 @@ class _MyCartPageState extends State<MyCartPage> {
                       margin: EdgeInsets.only(left: 30),
                       height: 100,
                       child: Card(
+                        elevation: 3,
                         child: Row(
                           children: [
                             SizedBox(width: 35),
@@ -87,7 +88,7 @@ class _MyCartPageState extends State<MyCartPage> {
                       ),
                     ),
                     Positioned(
-                      top: 11,
+                      top: 14,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(80),
                         child:
@@ -135,7 +136,11 @@ Widget nameWidget(BuildContext context, String name) {
     name,
     maxLines: 2,
     overflow: TextOverflow.ellipsis,
-    style: Theme.of(context).textTheme.caption.copyWith(fontSize: 11),
+    style: Theme.of(context).textTheme.caption.copyWith(
+          fontSize: 11,
+          color: Colors.black87,
+          fontWeight: FontWeight.bold,
+        ),
   );
 }
 

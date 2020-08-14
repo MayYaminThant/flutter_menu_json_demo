@@ -247,20 +247,20 @@ Future<List<Menu>> fetchData(BuildContext context) async {
 
   // Await the http get response, then decode the json-formatted response.
   List<Menu> menuList = List();
-//  try {
-//    var response = await http.get(url);
-//    if (response.statusCode == 200) {
-//      menuList = menuFromJson(response.body);
-//      var itemCount = menuList.length;
-//      print('Number of menu about http: $itemCount.');
-//    } else {
-//      throw Exception('Failed to load menu');
-//    }
-//  } catch (e) {
-//    print(e);
+  try {
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      menuList = menuFromJson(response.body);
+      var itemCount = menuList.length;
+      print('Number of menu about http: $itemCount.');
+    } else {
+      throw Exception('Failed to load menu');
+    }
+  } catch (e) {
+    print(e);
     menuList = menuFromJson(await DefaultAssetBundle.of(context)
         .loadString('assets/demo_menu.json'));
-//  }
+  }
   menuList.insert(
       0,
       Menu(

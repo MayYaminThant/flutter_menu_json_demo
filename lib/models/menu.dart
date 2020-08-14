@@ -211,7 +211,7 @@ class Item {
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
-        itemName: json["item_name"],
+        itemName: utf8convert(json["item_name"]),
         itemDescription: json["item_description"],
         itemPrice: json["item_price"],
         photo: json["photo"],
@@ -387,4 +387,9 @@ class EnumValues<T> {
     }
     return reverseMap;
   }
+}
+
+String utf8convert(String text) {
+  List<int> bytes = text.toString().codeUnits;
+  return utf8.decode(bytes);
 }

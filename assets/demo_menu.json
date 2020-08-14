@@ -23,7 +23,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1100.0,
             "itemCode": "040100111",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -74,7 +74,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1200.0,
             "itemCode": "040100211",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -144,7 +144,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1300.0,
             "itemCode": "040100311",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -195,7 +195,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 100.0,
             "itemCode": "040100411",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -273,7 +273,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 13.0,
             "itemCode": "0101002",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -328,7 +328,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1000.0,
             "itemCode": "0101003",
             "itemType": "NO_STOCK",
             "oneItemDiscount": 0.0,
@@ -406,7 +406,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 10.0,
             "itemCode": "0201001",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -457,7 +457,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 10.0,
             "itemCode": "0201002",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -508,7 +508,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 15.0,
             "itemCode": "0201003",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -559,7 +559,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 100.0,
             "itemCode": "0201004",
             "itemType": "STOCK",
             "oneItemDiscount": 100.0,
@@ -633,7 +633,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 20.0,
             "itemCode": "0301001",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -684,7 +684,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 2.0,
             "itemCode": "54030018888",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -735,7 +735,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 9.0,
             "itemCode": "0301002",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -809,7 +809,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1000.0,
             "itemCode": "0501001",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -860,7 +860,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 1000.0,
             "itemCode": "0501002",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,
@@ -901,7 +901,7 @@
             "id": 3,
             "item_name": "test item 008",
             "item_description": "",
-            "item_price": 1.0,
+            "item_price": 100.0,
             "photo": "",
             "quantity": 2.0,
             "barcode": "",
@@ -911,7 +911,7 @@
               "Remaining": []
             },
             "averageBoughtPriceForOne": 0.0,
-            "oneItemPrice": 0.0,
+            "oneItemPrice": 100.0,
             "itemCode": "0501003",
             "itemType": "STOCK",
             "oneItemDiscount": 0.0,

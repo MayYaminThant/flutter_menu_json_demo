@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp04/current_order.dart';
+import 'package:flutterapp04/pages/cart_page.dart';
 import 'package:flutterapp04/widgets/list_item.dart';
 
 import 'package:http/http.dart' as http;
@@ -205,7 +205,6 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (BuildContext context, int index) {
 //                return Text(snapshot.data[index].itemName);
                 return Card(
-                  shadowColor: Colors.black54,
                   margin: EdgeInsets.all(4),
                   child: ListItem(
                     item: itemList[index],
@@ -223,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: itemList.length,
               physics: BouncingScrollPhysics(),
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.95,
+                childAspectRatio: 0.92,
                 crossAxisCount: 2,
               ),
               itemBuilder: (BuildContext context, int index) {
@@ -247,49 +246,36 @@ Future<List<Menu>> fetchData(BuildContext context) async {
   var url = 'http://192.168.100.5:4907/tarabar/public/stockReport.json';
 
   // Await the http get response, then decode the json-formatted response.
-  var response = await http.get(url);
-  if (response.statusCode == 200) {
-    List<Menu> menuList = menuFromJson(response.body);
-    var itemCount = menuList.length;
-    menuList.insert(
-        0,
-        Menu(
-            topCategoryNameGivenByCustomer: "All Top Category",
-            topCategoryDbId: -1,
-            topCategoryId: -1,
-            topCategoryData: [
-              TopCategoryData(
-                  category: "All Sub Category",
-                  categoryDbId: -1,
-                  categoryId: -1,
-                  topCategoryId: -1)
-            ]));
-    print('Number of menu about http: $itemCount.');
-    return menuList;
-  } else {
-    throw Exception('Failed to load menu');
-  }
+  List<Menu> menuList = List();
+//  try {
+//    var response = await http.get(url);
+//    if (response.statusCode == 200) {
+//      menuList = menuFromJson(response.body);
+//      var itemCount = menuList.length;
+//      print('Number of menu about http: $itemCount.');
+//    } else {
+//      throw Exception('Failed to load menu');
+//    }
+//  } catch (e) {
+//    print(e);
+    menuList = menuFromJson(await DefaultAssetBundle.of(context)
+        .loadString('assets/demo_menu.json'));
+//  }
+  menuList.insert(
+      0,
+      Menu(
+          topCategoryNameGivenByCustomer: "All Top Category",
+          topCategoryDbId: -1,
+          topCategoryId: -1,
+          topCategoryData: [
+            TopCategoryData(
+                category: "All Sub Category",
+                categoryDbId: -1,
+                categoryId: -1,
+                topCategoryId: -1)
+          ]));
+  return menuList;
 }
-
-// Future<List<Menu>> fetchData(BuildContext context) async {
-//   List<Menu> menuList = menuFromJson(
-//       await DefaultAssetBundle.of(context).loadString('assets/demo_menu.json'));
-
-//   menuList.insert(
-//       0,
-//       Menu(
-//           topCategoryNameGivenByCustomer: "All Top Category",
-//           topCategoryDbId: -1,
-//           topCategoryId: -1,
-//           topCategoryData: [
-//             TopCategoryData(
-//                 category: "All Sub Category",
-//                 categoryDbId: -1,
-//                 categoryId: -1,
-//                 topCategoryId: -1)
-//           ]));
-//   return menuList;
-// }
 
 List<Item> getItemList(
     List<Menu> menuList, int topCategoryId, int subCategoryDBId) {
@@ -339,7 +325,7 @@ Future navigateToShoppingCart(
   await Navigator.push(
     context,
     MaterialPageRoute(
-        builder: (context) => CurrentOrder(currentOrderItemList: selectedList)),
+        builder: (context) => MyCartPage(currentOrderItemList: selectedList)),
   );
 }
 

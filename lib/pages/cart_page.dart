@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp04/models/menu.dart';
+import 'package:flutterapp04/utils.dart';
 import 'package:flutterapp04/widgets/cart_item_add_or_remove_button.dart';
 
 class MyCartPage extends StatefulWidget {
@@ -22,6 +23,9 @@ class _MyCartPageState extends State<MyCartPage> {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, double> map = getSelectedTotalItemQty(currentOrderItemList);
+    var totalQty = map['count'] == null ? 0 : map['count'];
+    var totalPrice = map['price'] == null ? 0 : map['price'];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -60,9 +64,9 @@ class _MyCartPageState extends State<MyCartPage> {
                                 nameWidget(context,
                                     currentOrderItemList[index].itemName),
                                 SizedBox(height: 8),
-                                priceWidget(currentOrderItemList[index]
-                                        .quantity *
-                                    currentOrderItemList[index].oneItemPrice),
+                                priceWidget(
+                                    currentOrderItemList[index].quantity *
+                                        currentOrderItemList[index].itemPrice),
                               ],
                             )),
                             CartItemAddOrRemoveButton(
@@ -97,7 +101,7 @@ class _MyCartPageState extends State<MyCartPage> {
           ),
 
           /// footer
-          subTotalWidget(context, 5, 20000),
+          subTotalWidget(context, totalQty, totalPrice),
         ],
       ),
     );
@@ -132,72 +136,6 @@ Widget nameWidget(BuildContext context, String name) {
     maxLines: 2,
     overflow: TextOverflow.ellipsis,
     style: Theme.of(context).textTheme.caption.copyWith(fontSize: 11),
-  );
-}
-
-Widget bodyWidget(BuildContext context, List<Item> currentOrderItemList) {
-  return Column(
-    children: [
-      /// item list
-      Expanded(
-        child: ListView.builder(
-          itemCount: currentOrderItemList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Stack(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(8),
-                  margin: EdgeInsets.only(left: 30),
-                  height: 100,
-                  child: Card(
-                    child: Row(
-                      children: [
-                        SizedBox(width: 35),
-                        Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            nameWidget(
-                                context, currentOrderItemList[index].itemName),
-                            SizedBox(height: 8),
-                            priceWidget(currentOrderItemList[index].quantity *
-                                currentOrderItemList[index].oneItemPrice),
-                          ],
-                        )),
-                        CartItemAddOrRemoveButton(
-                          onQtyChanged: (quantity) {
-                            //  todo
-                            if (quantity == 0) {
-                              currentOrderItemList
-                                  .remove(currentOrderItemList[index]);
-                            } else {
-                              currentOrderItemList[index].quantity = quantity;
-                            }
-                          },
-                          quantity: currentOrderItemList[index].quantity,
-                        ),
-                        SizedBox(width: 15),
-                      ],
-                    ), //
-                  ),
-                ),
-                Positioned(
-                  top: 11,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(80),
-                    child: imageWidget(currentOrderItemList[index].itemCode),
-                  ),
-                )
-              ],
-            );
-          },
-        ),
-      ),
-
-      /// footer
-      subTotalWidget(context, 5, 20000),
-    ],
   );
 }
 

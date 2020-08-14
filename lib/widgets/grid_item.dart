@@ -16,7 +16,11 @@ class GridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.width * 0.95 / 2.7;
+    var media = MediaQuery.of(context).size;
+
+    height = media.width *
+        0.95 /
+        (media.width < 300 ? 5.5 : (media.width < 600 ? 4.5 : 3));
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -26,7 +30,7 @@ class GridItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            imageWidget(context),
+            imageWidget(context, media.width),
             priceWidget(item.itemPrice),
             descriptionWidget(context, item.itemName),
           ],
@@ -35,12 +39,13 @@ class GridItem extends StatelessWidget {
     );
   }
 
-  Widget imageWidget(BuildContext context) {
+  Widget imageWidget(BuildContext context, var width) {
     return Stack(
       children: <Widget>[
         Center(
           child: FadeInImage.assetNetwork(
-            width: double.infinity,
+            width: width,
+            fit: BoxFit.cover,
             height: height,
             placeholder: 'assets/images/three_apples.jpg',
             image:

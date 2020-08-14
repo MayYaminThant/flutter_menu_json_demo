@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp04/pages/cart_page.dart';
+import 'package:flutterapp04/utils.dart';
 import 'package:flutterapp04/widgets/list_item.dart';
 
 import 'package:http/http.dart' as http;
@@ -78,7 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<Item> itemList = getItemList(widget.topCategoryList,
         selectedMenu.topCategoryId, categoryData.categoryDbId);
-    double count = getSelectedTotalItemQty(selectedList);
+
+    Map<String, double> map = getSelectedTotalItemQty(selectedList);
+    double count = map['count'] == null ? 0 : map['count'];
+
+    var media = MediaQuery.of(context).size;
+    var customRatio = media.width < 250 ? 1 : (media.width < 900 ? 1.2 : 0.8);
+    var customCardLimit = media.width < 900 ? 2 : 3;
+
     return Scaffold(
       drawer: Drawer(
         child: SafeArea(
@@ -222,8 +230,8 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: itemList.length,
               physics: BouncingScrollPhysics(),
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.92,
-                crossAxisCount: 2,
+                childAspectRatio: customRatio,
+                crossAxisCount: customCardLimit,
               ),
               itemBuilder: (BuildContext context, int index) {
                 return GridItem(
@@ -310,14 +318,6 @@ List<DropdownMenuItem<Menu>> getTopCategoryList(List<Menu> menuList) {
     );
   }
   return dropList;
-}
-
-double getSelectedTotalItemQty(List<Item> itemList) {
-  double count = 0;
-  for (Item item in itemList) {
-    count += item.quantity;
-  }
-  return count;
 }
 
 Future navigateToShoppingCart(

@@ -47,7 +47,7 @@ class GridItem extends StatelessWidget {
             width: width,
             fit: BoxFit.cover,
             height: height,
-            placeholder: 'assets/images/three_apples.jpg',
+            placeholder: 'assets/images/apple.jpg',
             image:
                 'http://192.168.100.5:4907/tarabar/tarabar/resources/images/' +
                     item.itemCode +

@@ -16,7 +16,7 @@ class ListItem extends StatelessWidget {
       leading: FadeInImage.assetNetwork(
         width: 70,
         fit: BoxFit.cover,
-        placeholder: 'assets/images/three_apples.jpg',
+        placeholder: 'assets/images/apple.jpg',
         image: 'http://192.168.100.5:4907/tarabar/tarabar/resources/images/' +
             item.itemCode +
             '.jpg',

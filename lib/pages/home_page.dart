@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp04/models/menu.dart';
 import 'package:flutterapp04/pages/cart_page.dart';
 import 'package:flutterapp04/utils/utils.dart';
+import 'package:flutterapp04/widgets/drop_down_design.dart';
 import 'package:flutterapp04/widgets/grid_item.dart';
 import 'package:flutterapp04/widgets/list_item.dart';
 
@@ -120,145 +121,146 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget getBody(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 50,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: widget.topCategoryList.length,
-            itemBuilder: (BuildContext content, int index) {
-              return Card(
-                color: Colors.orange,
-                elevation: 10,
-                margin: EdgeInsets.all(2),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Padding(
-                  padding: EdgeInsets.all(4),
-                  child: Center(
-                    child: Text(
-                      widget.topCategoryList[index]
-                          .topCategoryNameGivenByCustomer,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-        itemView == Icons.view_comfy ? getListView() : getGridView(),
-      ],
-    );
+    return itemView == Icons.view_comfy ? getListView() : getGridView();
   }
 
   Widget getListView() {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            margin: EdgeInsets.all(4),
-            child: ListItem(
-              item: itemList[index],
-              onTap: () {
-                setState(() {
-                  addToCart(itemList, index);
-                });
-              },
-            ),
-          );
-        },
-        itemCount: itemList.length,
-      ),
-    );
-  }
-
-  Widget getGridView() {
-    return Expanded(
-      child: GridView.builder(
-        itemCount: itemList.length,
-        physics: BouncingScrollPhysics(),
-        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: customRatio,
-          crossAxisCount: customCardLimit,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          return GridItem(
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          margin: EdgeInsets.all(4),
+          child: ListItem(
             item: itemList[index],
             onTap: () {
               setState(() {
                 addToCart(itemList, index);
               });
             },
-          );
-        },
+          ),
+        );
+      },
+      itemCount: itemList.length,
+    );
+  }
+
+  Widget getGridView() {
+    return GridView.builder(
+      itemCount: itemList.length,
+      physics: BouncingScrollPhysics(),
+      gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: customRatio,
+        crossAxisCount: customCardLimit,
       ),
+      itemBuilder: (BuildContext context, int index) {
+        return GridItem(
+          item: itemList[index],
+          onTap: () {
+            setState(() {
+              addToCart(itemList, index);
+            });
+          },
+        );
+      },
     );
   }
 
   Widget getTopCategoryDropDown() {
-    return DropdownButton<Menu>(
-      value: selectedMenu,
-      icon: Icon(Icons.arrow_drop_down),
-      iconSize: 24,
-      elevation: 16,
-      style: TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+    return DropDownCustomButton(
+      widget: DropdownButtonHideUnderline(
+        child: ButtonTheme(
+          alignedDropdown: true,
+          child: DropdownButton<Menu>(
+            isExpanded: true,
+            value: selectedMenu,
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.deepOrangeAccent[100],
+            ),
+            iconSize: 24,
+            elevation: 16,
+            style: TextStyle(color: Colors.deepPurple),
+            underline: Container(
+              height: 2,
+              color: Colors.deepPurpleAccent,
+            ),
+            onChanged: (menu) {
+              setState(() {
+                selectedMenu = menu;
+                subCategoryList = List();
+                if (menu.topCategoryData.length > 1) {
+                  subCategoryList.add(TopCategoryData(
+                      category: "All Sub Category",
+                      categoryDbId: -1,
+                      categoryId: -1,
+                      topCategoryId: -1));
+                }
+                subCategoryList.addAll(menu.topCategoryData);
+                categoryData =
+                    (subCategoryList != null && subCategoryList.isNotEmpty)
+                        ? subCategoryList[0]
+                        : null;
+              });
+            },
+            items: widget.topCategoryList
+                .map<DropdownMenuItem<Menu>>((Menu value) {
+              return DropdownMenuItem<Menu>(
+                value: value,
+                child: Text(
+                  value.topCategoryNameGivenByCustomer,
+                  style: TextStyle(color: Colors.black),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
       ),
-      onChanged: (menu) {
-        setState(() {
-          selectedMenu = menu;
-          subCategoryList = List();
-          if (menu.topCategoryData.length > 1) {
-            subCategoryList.add(TopCategoryData(
-                category: "All Sub Category",
-                categoryDbId: -1,
-                categoryId: -1,
-                topCategoryId: -1));
-          }
-          subCategoryList.addAll(menu.topCategoryData);
-          categoryData = (subCategoryList != null && subCategoryList.isNotEmpty)
-              ? subCategoryList[0]
-              : null;
-        });
-      },
-      items: widget.topCategoryList.map<DropdownMenuItem<Menu>>((Menu value) {
-        return DropdownMenuItem<Menu>(
-          value: value,
-          child: Text(value.topCategoryNameGivenByCustomer),
-        );
-      }).toList(),
     );
   }
 
   Widget getSubCategoryDropDown() {
-    return DropdownButton<TopCategoryData>(
-      value: categoryData,
-      icon: Icon(Icons.arrow_drop_down),
-      iconSize: 24,
-      elevation: 16,
-      style: TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+    return DropDownCustomButton(
+      widget: DropdownButtonHideUnderline(
+        child: ButtonTheme(
+          alignedDropdown: true,
+          child: DropdownButton<TopCategoryData>(
+            isExpanded: true,
+            value: categoryData,
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.deepOrangeAccent[100],
+            ),
+            iconSize: 24,
+            elevation: 16,
+            style: TextStyle(color: Colors.deepPurple),
+            underline: Container(
+              height: 2,
+              color: Colors.deepPurpleAccent,
+            ),
+            onChanged: (category) {
+              setState(() {
+                categoryData = category;
+              });
+            },
+            items: subCategoryList != null
+                ? subCategoryList.map<DropdownMenuItem<TopCategoryData>>(
+                    (TopCategoryData value) {
+                    return DropdownMenuItem<TopCategoryData>(
+                      value: value,
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          value.category,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: Colors.black,),
+                        ),
+                      ),
+                    );
+                  }).toList()
+                : null,
+          ),
+        ),
       ),
-      onChanged: (category) {
-        setState(() {
-          categoryData = category;
-        });
-      },
-      items: subCategoryList != null
-          ? subCategoryList
-              .map<DropdownMenuItem<TopCategoryData>>((TopCategoryData value) {
-              return DropdownMenuItem<TopCategoryData>(
-                value: value,
-                child: Text(value.category),
-              );
-            }).toList()
-          : null,
     );
   }
 

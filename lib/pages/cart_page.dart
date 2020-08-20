@@ -77,15 +77,19 @@ class _MyCartPageState extends State<MyCartPage> {
   }
 
   Widget subTotalWidget(
-      BuildContext context, double totalQty, double totalPrice) {
+    BuildContext context,
+    double totalQty,
+    double totalPrice,
+  ) {
     return Card(
       elevation: 10,
       margin: EdgeInsets.all(0),
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
-      )),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
       child: Padding(
         padding: EdgeInsets.all(16),
         child: Row(

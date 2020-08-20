@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
         if (snapshot.hasData) {
           return MyHomePage(topCategoryList: snapshot.data);
         }
+
         return Center(child: CircularProgressIndicator());
       },
     );

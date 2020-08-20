@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp04/models/menu.dart';
-import 'package:flutterapp04/utils.dart';
+import 'package:flutterapp04/utils/utils.dart';
 import 'package:flutterapp04/widgets/cart_item_add_or_remove_button.dart';
 
 class MyCartPage extends StatefulWidget {
